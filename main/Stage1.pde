@@ -25,7 +25,7 @@ class Stage1 {
     
     
     
-    player.move();
+    
     pg.beginDraw();
     fill(0);
     rect(0,0,1200,500);
@@ -37,7 +37,7 @@ class Stage1 {
     pushMatrix();
     translate(player.origin.x + 25, player.origin.y + 25);
     rotate(-angle);
-    quad(player.origin.x + 60, player.origin.y + 35, player.origin.x + 205, player.origin.y + 75, player.origin.x + 205, player.origin.y - 20, player.origin.x + 60 , player.origin.y + 25);
+    quad(-5, -5, 205, -60, 205, 60, 5, 5);
     popMatrix();
     //quad(125,10,70,170,190,170,135,10);
        
@@ -47,6 +47,7 @@ class Stage1 {
       grounds.get(i).collidePlayer();
     }
     
+    player.move();
     pg.mask(background);   
     image(pg,0,0);
     player.display();
