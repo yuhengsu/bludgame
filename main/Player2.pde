@@ -1,10 +1,10 @@
-class Player{
+class Player2{
 
   Point origin, size;
   Physics movement;
   
   
-  Player(Point origin, Point size, Point speed){
+  Player2(Point origin, Point size, Point speed){
     this.origin = new Point();
     this.size = new Point();
     this.origin = origin;
@@ -14,9 +14,9 @@ class Player{
   }
   
   void display() {
-    PImage C1;
-    C1 = loadImage("C1Right.png");
-    image(C1, origin.x, origin.y);
+    PImage C2;
+    C2 = loadImage("C2Right.png");
+    image(C2, origin.x, origin.y);
     //fill(255);
     //rect(origin.x, origin.y, 50, 50, 16, 16, 4, 4);
   }
@@ -30,14 +30,14 @@ class Player{
     movement.gravity = 0.2;
     movement.speed.y = constrain(movement.speed.y, -25, 25);
     
-    if (keys.contains(LEFT)) {
+    if (keys.contains(65)) {
       //movement.speed.x -= movement.acceleration;
       //movement.speed.x = constrain(movement.speed.x, -movement.topSpeed, 0);
       movement.speed.x = -3;
       
       //if (leftCollide) movement.speed.x = 0;
     }    
-    else if (keys.contains(RIGHT)) {
+    else if (keys.contains(68)) {
       constrain(movement.speed.x, -3, 0);
       //movement.speed.x += movement.acceleration;
       //movement.speed.x = constrain(movement.speed.x, 0, movement.topSpeed);
@@ -51,7 +51,7 @@ class Player{
     origin.x += movement.speed.x; 
     System.out.println(leftCollide);
     
-    if (keys.contains(UP) && !bottomCollide) {
+    if (keys.contains(87) && !bottomCollide) {
       if (!jumping){
         movement.speed.y = -6.5;
         jumping = true;

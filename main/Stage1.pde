@@ -2,6 +2,7 @@
 class Stage1 {
 
   ArrayList<Ground> grounds = new ArrayList<Ground>();
+  Torch light = new Torch();
   public Stage1(){
     
     grounds.add(new Ground(0,255,150,85)); // 1
@@ -22,14 +23,15 @@ class Stage1 {
     background = loadImage("BACKGROUND.jpg");
     overlay = loadImage("overlay.png");
     image(background, 0, 0);
-    
-    
-    
+    light.drawShape();
     
     pg.beginDraw();
     fill(0);
     rect(0,0,1200,500);
     fill(255,255,255,255);
+    stroke(0,0,0,0);
+    ellipse(player.origin.x + 25, player.origin.y + 25, 50,50);
+    ellipse(player2.origin.x + 25, player2.origin.y + 25, 50,50);
     float angle =atan2(-(mouseY - player.origin.y - 25),(mouseX - player.origin.x - 25));
     if (angle < 0) {
       angle += PI*2;
@@ -39,21 +41,26 @@ class Stage1 {
     rotate(-angle);
     quad(-5, -5, 265, -60, 265, 60, 5, 5);
     popMatrix();
+    
+
     //quad(125,10,70,170,190,170,135,10);
        
     col.resetCollision();
     player.move();   
+    player2.move();
     
     pg.endDraw();
     for(int i = 0; i < grounds.size(); i++){
       grounds.get(i).drawShape();
-      grounds.get(i).collidePlayer();
+      grounds.get(i).collidePlayer(player);
+      grounds.get(i).collidePlayer(player2);
     }
     
     
     pg.mask(background);   
     image(pg,0,0);
     player.display();
+    player2.display();
     System.out.println(player.origin.x + "|" + player.origin.y);
     image(overlay, 0, 0);
     

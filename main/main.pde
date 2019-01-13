@@ -6,8 +6,9 @@ PGraphics pg;
 ArrayList keys = new ArrayList();
 
 Player player;
+Player2 player2;
 Collision col;
-Point playerOrigin, playerSize, speed;
+Point playerOrigin, playerSize, speed, player2Origin, player2Size;
 boolean leftCollide = false, rightCollide = false, topCollide = false, bottomCollide = false;
 
 void setup(){
@@ -15,9 +16,12 @@ void setup(){
   size(1200,500);
   frameRate(60);
   playerOrigin = new Point(20,100);
+  player2Origin = new Point(90,100);
   playerSize = new Point(50, 50);
+  player2Size = new Point(90,100);
   speed = new Point(0, 0);
   player = new Player(playerOrigin, playerSize, speed);
+  player2 = new Player2(player2Origin, player2Size, speed);
   col = new Collision();
   pg = createGraphics(1200,500);
 }

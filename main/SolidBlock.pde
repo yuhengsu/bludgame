@@ -23,7 +23,33 @@ class SolidBlock {
     corners.add(new Point(tempCoordX-offset, tempCoordY+offset + tempSizeY));
   }
   
-  void collidePlayer(){
+  void collidePlayer(Player player){
+    Point arr[] = {player.origin, player.size, origin, size, player.movement.speed};
+    if (col.cIn(arr)) {
+      if (col.cTop(arr)) {
+        topCollide = true;
+        jumping = false;
+        System.out.print("coll");
+        if (player.origin.y < origin.y - player.size.y * 0.9) player.origin.y = origin.y - player.size.y;
+        if (player.movement.speed.y > 0) player.movement.speed.y = 0;
+      } if (col.cBot(arr)) {
+        bottomCollide = true;
+        if (player.origin.y < origin.y + size.y
+         && player.origin.y + player.size.y > origin.y + size.y) player.origin.y = origin.y + size.y;
+        
+        player.movement.speed.y = 0;
+      } if (col.cLe(arr)) {
+        System.out.println("LEFT");
+        leftCollide = true;
+        player.origin.x = origin.x + size.x + player.size.x;
+        
+      } if (col.cRi(arr)) {
+        rightCollide = true;
+        player.origin.x = origin.x - player.size.x;
+      } 
+    }
+  }
+    void collidePlayer(Player2 player){
     Point arr[] = {player.origin, player.size, origin, size, player.movement.speed};
     if (col.cIn(arr)) {
       if (col.cTop(arr)) {
