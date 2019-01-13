@@ -14,7 +14,7 @@ class Player{
   
   void display() {
     fill(255);
-    rect(origin.x, origin.y, 50, 50);
+    rect(origin.x, origin.y, 50, 50, 16, 16, 4, 4);
   }
   
   void move() {
@@ -36,11 +36,11 @@ class Player{
                 movement.speed.x = constrain(movement.speed.x, 0, movement.topSpeed);}}
       
     if (keys.contains(UP)) {
-      movement.speed.y -= 2*movement.acceleration;
+      movement.speed.y = -5;
     }
   
     
-    origin.x = constrain(origin.x, 0, 1200 - size.x);
-    origin.y = constrain(origin.y, 0, 500 - size.y);
+    origin.x = constrain(origin.x, 0, 1150);
+    origin.y = constrain(origin.y, 0, 450);
   }
 }

@@ -11,8 +11,7 @@ class Collision {
    */
    
   boolean cIn(Point arr[]){
-    return true;
-    //return checkInside(arr[0], arr[1], arr[2], arr[3], arr[4]);
+    return checkInside(arr[0], arr[1], arr[2], arr[3], arr[4]);
   }
   
   boolean cTop(Point arr[]){
@@ -32,13 +31,12 @@ class Collision {
   }
    
   boolean checkInside(Point obj1, Point size1, Point obj2, Point size2, Point speed) {
-    float deltaX = obj1.x + speed.x;
-    float deltaY = obj1.y + speed.y;
-    if (deltaX >= obj2.x && deltaX <= obj2.x &&
-      deltaY >= obj2.y && deltaY <= obj2.y) {
+    float deltaX = obj1.x + size1.x;
+    float deltaY = obj1.y + size1.y;
+    if (deltaX >= obj2.x && obj1.x <= obj2.x + size2.x &&
+      deltaY >= obj2.y && obj1.y <= obj2.y + size2.y) {
       return true;
-    }
-    else {
+    } else {
       return false;
     }
   }
@@ -46,8 +44,8 @@ class Collision {
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
   boolean checkTop(Point obj1, Point size1, Point obj2, Point size2, Point speed) {
-    float deltaY = obj1.y + speed.y;
-    if (deltaY >= obj2.y && obj1.y <= obj2.y && speed.y >= 0) {
+    float deltaY = obj1.y + size1.y;
+    if (deltaY >= obj2.y || obj1.y + size1.y >= obj2.y) {
       return true;
     }
     else {
@@ -57,8 +55,7 @@ class Collision {
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
   boolean checkBottom(Point obj1, Point size1, Point obj2, Point size2, Point speed) {
-    float deltaY = obj1.y + speed.y;
-    if (deltaY <= obj2.y && obj1.y >= obj2.y && speed.y <= 0) {
+    if (obj1.y + speed.y <= obj2.y + size2.y) {
       return true;
     }
     else {
@@ -68,8 +65,8 @@ class Collision {
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
   boolean checkLeft(Point obj1, Point size1, Point obj2, Point size2, Point speed) {
-    float deltaX = obj1.x + speed.x;
-    if (deltaX >= obj2.x && obj1.x <= obj2.x) {
+    float deltaX = obj1.x + size1.x;
+    if (obj1.x <= obj2.x + size2.x && deltaX >= obj2.x) {
       return true;
     }
     else {
@@ -79,8 +76,8 @@ class Collision {
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
   boolean checkRight(Point obj1, Point size1, Point obj2, Point size2, Point speed) {
-    float deltaX = obj1.x + speed.x;
-    if (deltaX <= obj2.x && obj1.x >= obj2.x) {
+    float deltaX = obj1.x + size1.x;
+    if (deltaX >= obj2.x && obj1.x < obj2.x) {
       return true;
     }
     else {

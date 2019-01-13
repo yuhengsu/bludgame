@@ -12,7 +12,7 @@ void setup(){
   smooth(2);
   size(1200,500);
   frameRate(60);
-  playerOrigin = new Point(10, 170);
+  playerOrigin = new Point(20,100);
   playerSize = new Point(50, 50);
   speed = new Point(0, 0);
   player = new Player(playerOrigin, playerSize, speed);

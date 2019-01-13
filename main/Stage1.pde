@@ -30,8 +30,8 @@ class Stage1 {
       grounds.get(i).collidePlayer();
     }
     player.display();
-    System.out.println(player.origin.x);
-    image(overlay, 0, 0);
+    System.out.println(player.origin.x + "|" + player.origin.y);
+    //image(overlay, 0, 0);
     
 
   }

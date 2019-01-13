@@ -11,6 +11,7 @@ class SolidBlock {
     size.x = tempSizeX;
     size.y = tempSizeY;
     colour = tempColour;
+    
     ///////////////////////////[CORNERS FOR RAYS]////////////////////////////////////////
     corners.add(new Point(tempCoordX+offset, tempSizeX));
     corners.add(new Point(tempCoordX-offset, tempCoordY-offset));
@@ -26,19 +27,16 @@ class SolidBlock {
     Point arr[] = {player.origin, player.size, origin, size, player.movement.speed};
     if (col.cIn(arr)) {
       if (col.cTop(arr)) {
-        player.origin.y = origin.y - player.size.y - 0.01;
-        player.movement.speed.y = 0;
-        player.movement.gravity = 0;
+        if (player.origin.y - (origin.y - player.size.y) < 10) player.origin.y = origin.y - player.size.y;
+        if (player.movement.speed.y > 0) player.movement.speed.y = 0;
       } else if (col.cBot(arr)) {
-        player.origin.y = origin.y + player.size.y + 0.01;
+        player.origin.y = origin.y + size.y + 0.05;
         player.movement.speed.y = 0;
       } else if (col.cLe(arr)) {
-        player.origin.x = origin.x - player.size.x - 0.01;
-        player.movement.acceleration = 0;
+        player.origin.x = origin.x + size.x + 0.05;
       } else if (col.cRi(arr)) {
-        player.origin.x = origin.x + player.size.x + 0.01;
-        player.movement.acceleration = 0;
-      } else {player.movement.gravity = 0.5;}
+        player.origin.x = origin.x - player.size.x - 0.01;
+      } 
     }
   }
    
