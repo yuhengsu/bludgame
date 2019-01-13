@@ -3,6 +3,8 @@ class Stage1 {
 
   ArrayList<Ground> grounds = new ArrayList<Ground>();
   Torch light = new Torch();
+  boolean bullet = false;
+  Bullet bull = new Bullet();
   Enemy enemy = new Enemy(600,115);
   public Stage1(){
     
@@ -43,13 +45,19 @@ class Stage1 {
     quad(-5, -5, 265, -60, 265, 60, 5, 5);
     popMatrix();
     
-
     //quad(125,10,70,170,190,170,135,10);
-       
+    if (keys.contains(DOWN)){
+      System.out.println("DOWN");
+      if (!bullet)
+        bullet = true;
+    }
     col.resetCollision();
     player.move();   
     player2.move();
-    
+    bull.move();
+    if (bullet) {
+      bull.coord.x += 1;
+      bull.drawShape();}
     pg.endDraw();
     for(int i = 0; i < grounds.size(); i++){
       grounds.get(i).drawShape();

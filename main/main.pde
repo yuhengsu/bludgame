@@ -29,7 +29,6 @@ Point playerOrigin, playerSize, speed, speed2, player2Origin, player2Size;
 boolean leftCollide = false, rightCollide = false, topCollide = false, bottomCollide = false;
 
 void setup(){
-  
 
   button = new Button(600, 400, "START");
   world = loadImage("world.png");
