@@ -1,9 +1,8 @@
 class Stage1 {
   ArrayList<Ground> grounds = new ArrayList<Ground>();
   public Stage1(){
-    PImage background, overlay;
-    background = loadImage("backk_dark.tif");
-    overlay = loadImage("overlayy.png");
+    
+    
     grounds.add(new Ground(0,255,150,85)); // 1
     grounds.add(new Ground(150,255,150,15)); // 3
     grounds.add(new Ground(0,420,650,130)); // 2
@@ -17,8 +16,14 @@ class Stage1 {
   }  
   
   public void initiate(){
+    PImage background, overlay;
+    background = loadImage("/assets/bg_dark.png");
+    overlay = loadImage("/assets/overlayy.png");
+    background(background);
+    background(overlay);
     for(int i = 0; i <= grounds.size() - 1; i++){
       grounds.get(i).drawShape();
     }
+    
   }
 }
