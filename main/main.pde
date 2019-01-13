@@ -8,6 +8,6 @@ void setup(){
 }
 
 void draw(){
-  stage2.initiate();
+  stage1.initiate();
 
 }

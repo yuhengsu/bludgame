@@ -17,8 +17,8 @@ class Stage1 {
   
   public void initiate(){
     PImage background, overlay;
-    background = loadImage("/assets/bg_dark.png");
-    overlay = loadImage("/assets/overlayy.png");
+    background = loadImage("/assets/BACKGROUND.png");
+    overlay = loadImage("/assets/overlay.png");
     background(background);
     image(overlay, 0, 0);
     for(int i = 0; i <= grounds.size() - 1; i++){
