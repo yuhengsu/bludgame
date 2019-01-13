@@ -1,0 +1,15 @@
+Stage1 stage1 = new Stage1();
+Stage2 stage2 = new Stage2();
+Character1 C1;
+
+void setup(){
+  smooth();
+  size(1200,500);
+  frameRate(60);
+  C1 = new Character1(width/2, height/2, 15, 2, 700, 700);
+}
+
+void draw(){
+  stage1.initiate();
+
+}

@@ -25,6 +25,12 @@ class Stage2{
   }  
   
   public void initiate(){
+    PImage background2, overlay2;
+    background2 = loadImage("BACKGROUND2.png");
+    overlay2 = loadImage("overlayy2.png");
+    image(background2, 0, 0);
+    image(overlay2,0,0);
+    
     for(int i = 0; i <= grounds.size() - 1; i++){
       grounds.get(i).drawShape();
     }
