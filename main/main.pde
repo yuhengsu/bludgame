@@ -1,5 +1,6 @@
 Stage1 stage1 = new Stage1();
 Stage2 stage2 = new Stage2();
+Stage3 stage3 = new Stage3();
 
 ArrayList keys = new ArrayList();
 
@@ -17,7 +18,7 @@ void setup(){
 }
 
 void draw(){
-  stage1.initiate();
+  stage3.initiate();
 
 }
 
