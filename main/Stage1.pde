@@ -3,6 +3,7 @@ class Stage1 {
 
   ArrayList<Ground> grounds = new ArrayList<Ground>();
   Torch light = new Torch();
+  Enemy enemy = new Enemy(600,115);
   public Stage1(){
     
     grounds.add(new Ground(0,255,150,85)); // 1
@@ -56,7 +57,7 @@ class Stage1 {
       grounds.get(i).collidePlayer(player2);
     }
     
-    
+    enemy.drawShape();
     pg.mask(background);   
     image(pg,0,0);
     player.display();
