@@ -1,4 +1,3 @@
-
 class Stage1 {
   ArrayList<Ground> grounds = new ArrayList<Ground>();
   public Stage1(){
@@ -18,26 +17,13 @@ class Stage1 {
   
   public void initiate(){
     PImage background, overlay;
-    background = loadImage("BACKGROUND.jpg");
-    overlay = loadImage("overlay.png");
-    image(background, 0, 0);
-    image(overlay,0,0);
-
-    
-    
-    col.resetCollision();
-    player.move();
-    for(int i = 0; i < grounds.size(); i++){
+    background = loadImage("/assets/BACKGROUND.png");
+    overlay = loadImage("/assets/overlayy.png");
+    background(background);
+    image(overlay, 0, 0);
+    for(int i = 0; i <= grounds.size() - 1; i++){
       grounds.get(i).drawShape();
-      grounds.get(i).collidePlayer();
     }
     
-    
-    
-    player.display();
-    System.out.println(player.origin.x + "|" + player.origin.y);
-    //image(overlay, 0, 0);
-    
-
   }
 }
