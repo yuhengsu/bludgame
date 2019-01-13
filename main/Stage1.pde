@@ -1,15 +1,16 @@
 class Stage1{
   ArrayList<Ground> grounds = new ArrayList<Ground>();
   public Stage1(){
-    grounds.add(new Ground(0,275,150,100)); // 1
-    grounds.add(new Ground(150,325,150,15)); // 3
-    grounds.add(new Ground(0,470,650,30)); // 2
-    grounds.add(new Ground(400,275,75,30)); // 4
-    grounds.add(new Ground(475,275,250,120)); //6
-    grounds.add(new Ground(375,380,100,15)); //10
-    grounds.add(new Ground(650,395,550,105)); //7
-    grounds.add(new Ground(850,345,100,50)); //8
-    grounds.add(new Ground(1050,370,150,25));
+    grounds.add(new Ground(0,255,150,85)); // 1
+    grounds.add(new Ground(150,255,150,15)); // 3
+    grounds.add(new Ground(0,420,650,130)); // 2
+    grounds.add(new Ground(400,165,75,30)); // 4
+    grounds.add(new Ground(475,165,250,200)); //6
+    grounds.add(new Ground(325,330,175,35)); //10
+    grounds.add(new Ground(650,275,550,225)); //7
+    grounds.add(new Ground(850,225,100,50)); //8
+    grounds.add(new Ground(1050,250,150,25)); //9
+    grounds.add(new Ground(550,0,100,110)); //5
   }  
   
   public void initiate(){
