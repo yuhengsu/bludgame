@@ -15,53 +15,60 @@ class Player2{
   
   void display() {
     PImage C2;
-    C2 = loadImage("C2Right.png");
-    image(C2, origin.x, origin.y);
+    if (this.movement.speed.x < 0) {
+      C2 = loadImage("C2Left.png");
+      image(C2, this.origin.x - 22
+      , this.origin.y);
+    }
+    else {
+      C2 = loadImage("C2Right.png"); 
+      image(C2, this.origin.x, this.origin.y);
+    }
     //fill(255);
-    //rect(origin.x, origin.y, 50, 50, 16, 16, 4, 4);
+    //rect(this.origin.x, this.origin.y, 50, 50, 16, 16, 4, 4);
   }
   
   void move() {
     if (!bottomCollide)
-      origin.y += movement.speed.y;
-    movement.speed.y += movement.gravity;
+      this.origin.y += this.movement.speed.y;
+    this.movement.speed.y += this.movement.gravity;
    
     
-    movement.gravity = 0.2;
-    movement.speed.y = constrain(movement.speed.y, -25, 25);
+    this.movement.gravity = 0.2;
+    this.movement.speed.y = constrain(this.movement.speed.y, -25, 25);
     
     if (keys.contains(65)) {
-      //movement.speed.x -= movement.acceleration;
-      //movement.speed.x = constrain(movement.speed.x, -movement.topSpeed, 0);
-      movement.speed.x = -3;
+      //this.movement.speed.x -= this.movement.acceleration;
+      //this.movement.speed.x = constrain(this.movement.speed.x, -this.movement.topSpeed, 0);
+      this.movement.speed.x = -3;
       
-      //if (leftCollide) movement.speed.x = 0;
+      //if (leftCollide) this.movement.speed.x = 0;
     }    
     else if (keys.contains(68)) {
-      constrain(movement.speed.x, -3, 0);
-      //movement.speed.x += movement.acceleration;
-      //movement.speed.x = constrain(movement.speed.x, 0, movement.topSpeed);
-      //if (rightCollide) movement.speed.x = 0;
-      movement.speed.x = 3;
+      constrain(this.movement.speed.x, -3, 0);
+      //this.movement.speed.x += this.movement.acceleration;
+      //this.movement.speed.x = constrain(this.movement.speed.x, 0, this.movement.topSpeed);
+      //if (rightCollide) this.movement.speed.x = 0;
+      this.movement.speed.x = 3;
     } else {
-      movement.speed.x *= 0.85;
+      this.movement.speed.x *= 0.85;
     }
     
-    constrain(movement.speed.x, -3, 3);
-    origin.x += movement.speed.x; 
+    constrain(this.movement.speed.x, -3, 3);
+    this.origin.x += this.movement.speed.x; 
     System.out.println(leftCollide);
     
     if (keys.contains(87) && !bottomCollide) {
       if (!jumping){
-        movement.speed.y = -6.5;
+        this.movement.speed.y = -6.5;
         jumping = true;
       }
     }
     
     if (topCollide) this.movement.gravity = 0;
-    System.out.print("\n[" + movement.speed.x + "|" + movement.topSpeed);
+    System.out.print("\n[" + this.movement.speed.x + "|" + this.movement.topSpeed);
     
-    origin.x = constrain(origin.x, 0, 1150);
-    origin.y = constrain(origin.y, 0, 450);
+    this.origin.x = constrain(this.origin.x, 0, 1150);
+    this.origin.y = constrain(this.origin.y, 0, 450);
   }
 }

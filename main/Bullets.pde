@@ -9,4 +9,8 @@ class Bullet{
     fill(0);
     rect(coord.x,coord.y,size.x,size.y);
   }
+  
+  void move() {
+  
+  }
 }

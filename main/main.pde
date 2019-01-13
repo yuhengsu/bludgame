@@ -8,7 +8,7 @@ ArrayList keys = new ArrayList();
 Player player;
 Player2 player2;
 Collision col;
-Point playerOrigin, playerSize, speed, player2Origin, player2Size;
+Point playerOrigin, playerSize, speed, speed2, player2Origin, player2Size;
 boolean leftCollide = false, rightCollide = false, topCollide = false, bottomCollide = false;
 
 void setup(){
@@ -20,8 +20,9 @@ void setup(){
   playerSize = new Point(50, 50);
   player2Size = new Point(90,100);
   speed = new Point(0, 0);
+  speed2 = new Point(0,0);
   player = new Player(playerOrigin, playerSize, speed);
-  player2 = new Player2(player2Origin, player2Size, speed);
+  player2 = new Player2(player2Origin, player2Size, speed2);
   col = new Collision();
   pg = createGraphics(1200,500);
 }

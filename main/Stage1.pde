@@ -30,8 +30,8 @@ class Stage1 {
     rect(0,0,1200,500);
     fill(255,255,255,255);
     stroke(0,0,0,0);
-    ellipse(player.origin.x + 25, player.origin.y + 25, 50,50);
-    ellipse(player2.origin.x + 25, player2.origin.y + 25, 50,50);
+    ellipse(player.origin.x + 25, player.origin.y + 25, 60,60);
+    ellipse(player2.origin.x + 25, player2.origin.y + 25, 60,60);
     float angle =atan2(-(mouseY - player.origin.y - 25),(mouseX - player.origin.x - 25));
     if (angle < 0) {
       angle += PI*2;
