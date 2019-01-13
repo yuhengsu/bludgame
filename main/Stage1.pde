@@ -30,14 +30,14 @@ class Stage1 {
     fill(0);
     rect(0,0,1200,500);
     fill(255,255,255,255);
-    float angle =atan2(-(mouseY- 200),(mouseX - 200));
+    float angle =atan2(-(mouseY - player.origin.y - 25),(mouseX - player.origin.x - 25));
     if (angle < 0) {
       angle += PI*2;
     }
     pushMatrix();
     translate(player.origin.x + 25, player.origin.y + 25);
     rotate(-angle);
-    quad(-5, -5, 205, -60, 205, 60, 5, 5);
+    quad(-5, -5, 265, -60, 265, 60, 5, 5);
     popMatrix();
     //quad(125,10,70,170,190,170,135,10);
        
@@ -55,7 +55,7 @@ class Stage1 {
     image(pg,0,0);
     player.display();
     System.out.println(player.origin.x + "|" + player.origin.y);
-    //image(overlay, 0, 0);
+    image(overlay, 0, 0);
     
 
   }
