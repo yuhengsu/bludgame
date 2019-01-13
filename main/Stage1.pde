@@ -1,4 +1,4 @@
-class Stage1{
+class Stage1 {
   ArrayList<Ground> grounds = new ArrayList<Ground>();
   public Stage1(){
     grounds.add(new Ground(0,255,150,85)); // 1
