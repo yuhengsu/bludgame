@@ -1,23 +1,22 @@
-//////////////////////////////////////////////////
-// This class has the collision detection functions that other classes use in order to effect player or boxes
-//////////////////////////////////////////////////
-
 class Collision {
   
-  Point speed, x, y;
+  Point speed, obj1, obj2, size1, size2;
   
-  //////////////////////////////////////////////////
-  Collision() {
-  }
-//////////////////////////////////////////////////
-//////////////////////////////////////////////////
-
-  
-  boolean checkInside(Point x, Point y, Point speed) {
-    float deltaX = x1 + xspeed;
-    float deltaY = y1 + yspeed;
-    if (deltaX >= x2 - xsize2/2 - xsize1/2 && deltaX <= x2 + xsize2/2 + xsize1/2 &&
-      deltaY >= y2 - ysize2/2 - ysize1/2 && deltaY <= y2 + ysize2/2 + ysize1/2) {
+  /*
+   *
+   * speed = obj1 speed(x, y)
+   * obj1 = object 1 coordinates (moving)
+   * obj2 = object 2 coordinates (still)
+   * size1 = object 1 size
+   * size2 = object 2 size
+   *
+   */
+   
+  boolean checkInside(Point obj1, Point size1, Point obj2, Point size2, Point speed) {
+    float deltaX = obj1.x + speed.x;
+    float deltaY = obj1.y + speed.y;
+    if (deltaX >= obj2.x - size2.x/2 - size1.x/2 && deltaX <= obj2.x + size2.x/2 + size1.x/2 &&
+      deltaY >= obj2.y - size2.y/2 - size1.y/2 && deltaY <= obj2.y + size2.y/2 + size1.y/2) {
       return true;
     }
     else {
@@ -27,10 +26,9 @@ class Collision {
   
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
-  boolean checkTop(float x1, float y1, float xsize1, float ysize1, float yspeed, float xspeed, 
-  float x2, float y2, float xsize2, float ysize2) {
-    float deltaY = y1 + yspeed;
-    if (deltaY >= y2 - ysize2/2 - ysize1/2 && y1 <= y2 - ysize2/2 /* - ysize1/2*/ && yspeed >= 0) {
+  boolean checkTop(Point obj1, Point size1, Point obj2, Point size2, Point speed) {
+    float deltaY = obj1.y + speed.y;
+    if (deltaY >= obj2.y - size2.y/2 - size1.y/2 && obj1.y <= obj2.y - size2.y/2 /* - size1.y/2*/ && speed.y >= 0) {
       return true;
     }
     else {
@@ -39,10 +37,9 @@ class Collision {
   }
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
-  boolean checkBottom(float x1, float y1, float xsize1, float ysize1, float yspeed, float xspeed, 
-  float x2, float y2, float xsize2, float ysize2) {
-    float deltaY = y1 + yspeed;
-    if (deltaY <= y2 + ysize2/2 + ysize1/2 && y1 >= y2 + ysize2/2 /* + ysize1/2*/ && yspeed <= 0) {
+  boolean checkBottom(Point obj1, Point size1, Point obj2, Point size2, Point speed) {
+    float deltaY = obj1.y + speed.y;
+    if (deltaY <= obj2.y + size2.y/2 + size1.y/2 && obj1.y >= obj2.y + size2.y/2 /* + size1.y/2*/ && speed.y <= 0) {
       return true;
     }
     else {
@@ -51,10 +48,9 @@ class Collision {
   }
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
-  boolean checkLeft(float x1, float y1, float xsize1, float ysize1, float yspeed, float xspeed, 
-  float x2, float y2, float xsize2, float ysize2) {
-    float deltaX = x1 + xspeed;
-    if (deltaX >= x2 - xsize2/2 - xsize1/2 && x1 <= x2 - xsize2/2) {
+  boolean checkLeft(Point obj1, Point size1, Point obj2, Point size2, Point speed) {
+    float deltaX = obj1.x + speed.x;
+    if (deltaX >= obj2.x - size2.x/2 - size1.x/2 && obj1.x <= obj2.x - size2.x/2) {
       return true;
     }
     else {
@@ -63,10 +59,9 @@ class Collision {
   }
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
-  boolean checkRight(float x1, float y1, float xsize1, float ysize1, float yspeed, float xspeed, 
-  float x2, float y2, float xsize2, float ysize2) {
-    float deltaX = x1 + xspeed;
-    if (deltaX <= x2 + xsize2/2 + xsize1/2 && x1 >= x2 + xsize2/2) {
+  boolean checkRight(Point obj1, Point size1, Point obj2, Point size2, Point speed) {
+    float deltaX = obj1.x + speed.x;
+    if (deltaX <= obj2.x + size2.x/2 + size1.x/2 && obj1.x >= obj2.x + size2.x/2) {
       return true;
     }
     else {
