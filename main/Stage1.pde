@@ -20,7 +20,7 @@ class Stage1 {
     background = loadImage("/assets/bg_dark.png");
     overlay = loadImage("/assets/overlayy.png");
     background(background);
-    background(overlay);
+    image(overlay, 0, 0);
     for(int i = 0; i <= grounds.size() - 1; i++){
       grounds.get(i).drawShape();
     }
