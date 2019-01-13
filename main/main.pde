@@ -1,4 +1,5 @@
 Stage1 stage1 = new Stage1();
+Stage2 stage2 = new Stage2();
 
 void setup(){
   smooth();
@@ -7,6 +8,6 @@ void setup(){
 }
 
 void draw(){
-  stage1.initiate();
+  stage2.initiate();
 
 }
