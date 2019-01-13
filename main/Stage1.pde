@@ -1,6 +1,9 @@
 class Stage1 {
   ArrayList<Ground> grounds = new ArrayList<Ground>();
   public Stage1(){
+    PImage background, overlay;
+    background = loadImage("backk_dark.tif");
+    overlay = loadImage("overlayy.png");
     grounds.add(new Ground(0,255,150,85)); // 1
     grounds.add(new Ground(150,255,150,15)); // 3
     grounds.add(new Ground(0,420,650,130)); // 2

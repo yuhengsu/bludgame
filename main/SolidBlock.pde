@@ -1,5 +1,6 @@
 class SolidBlock {
-  Point origin, size;
+  Point origin = new Point();
+  Point size = new Point();
   ArrayList<Point> corners = new ArrayList<Point>();
   int colour;
   float offset = 0.1;
@@ -19,5 +20,6 @@ class SolidBlock {
     corners.add(new Point(tempCoordX+offset + tempSizeX, tempCoordY+offset + tempSizeY));
     corners.add(new Point(tempCoordX+offset, tempCoordY-offset + tempSizeY));
     corners.add(new Point(tempCoordX-offset, tempCoordY+offset + tempSizeY));
-  } 
+  }
+   
 }

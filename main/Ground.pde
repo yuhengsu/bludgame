@@ -5,6 +5,6 @@ class Ground extends SolidBlock {
   
   public void drawShape(){
     fill(colour);
-    rect(coordX, coordY, sizeX, sizeY);
+    rect(origin.x, origin.y, size.x, size.y);
   }
 }

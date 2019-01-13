@@ -5,6 +5,8 @@ public class Point {
         this.x = x;
         this.y = y;
     }
+    
+    Point(){} // overload for creating class elements
 
     public float getX() {
         return x;
