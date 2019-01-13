@@ -27,15 +27,25 @@ class SolidBlock {
     Point arr[] = {player.origin, player.size, origin, size, player.movement.speed};
     if (col.cIn(arr)) {
       if (col.cTop(arr)) {
-        if (player.origin.y - (origin.y - player.size.y) < 10) player.origin.y = origin.y - player.size.y;
+        topCollide = true;
+        jumping = false;
+        System.out.print("coll");
+        if (player.origin.y < origin.y - player.size.y * 0.9) player.origin.y = origin.y - player.size.y;
         if (player.movement.speed.y > 0) player.movement.speed.y = 0;
-      } else if (col.cBot(arr)) {
-        player.origin.y = origin.y + size.y + 0.05;
+      } if (col.cBot(arr)) {
+        bottomCollide = true;
+        if (player.origin.y < origin.y + size.y
+         && player.origin.y + player.size.y > origin.y + size.y) player.origin.y = origin.y + size.y;
+        
         player.movement.speed.y = 0;
-      } else if (col.cLe(arr)) {
-        player.origin.x = origin.x + size.x + 0.05;
-      } else if (col.cRi(arr)) {
-        player.origin.x = origin.x - player.size.x - 0.01;
+      } if (col.cLe(arr)) {
+        System.out.println("LEFT");
+        leftCollide = true;
+        player.origin.x = origin.x + size.x + player.size.x;
+        
+      } if (col.cRi(arr)) {
+        rightCollide = true;
+        player.origin.x = origin.x - player.size.x;
       } 
     }
   }

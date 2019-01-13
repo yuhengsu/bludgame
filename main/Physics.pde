@@ -4,8 +4,8 @@ class Physics {
   Physics(){
     speed = new Point(0, 0);
     gravity = 0.2;
-    topSpeed = 0.6;
+    topSpeed = 3;
     acceleration = 0.3;
-    drag = 0.2;
+    drag = 0.4;
   }
 }

@@ -1,12 +1,13 @@
 Stage1 stage1 = new Stage1();
 Stage2 stage2 = new Stage2();
 Stage3 stage3 = new Stage3();
-
+boolean jumping;
 ArrayList keys = new ArrayList();
 
 Player player;
 Collision col;
 Point playerOrigin, playerSize, speed;
+boolean leftCollide = false, rightCollide = false, topCollide = false, bottomCollide = false;
 
 void setup(){
   smooth(2);

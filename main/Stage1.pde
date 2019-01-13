@@ -23,12 +23,15 @@ class Stage1 {
     image(background, 0, 0);
     
     
-    
+    col.resetCollision();
     player.move();
     for(int i = 0; i < grounds.size(); i++){
       grounds.get(i).drawShape();
       grounds.get(i).collidePlayer();
     }
+    
+    
+    
     player.display();
     System.out.println(player.origin.x + "|" + player.origin.y);
     //image(overlay, 0, 0);
