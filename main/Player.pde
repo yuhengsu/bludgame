@@ -50,7 +50,7 @@ class Player{
     
     if (keys.contains(UP) && !bottomCollide) {
       if (!jumping){
-        movement.speed.y = -5;
+        movement.speed.y = -6.5;
         jumping = true;
       }
     }

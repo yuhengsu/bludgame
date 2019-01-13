@@ -41,13 +41,16 @@ class Stage1 {
     popMatrix();
     //quad(125,10,70,170,190,170,135,10);
        
+    col.resetCollision();
+    player.move();   
+    
     pg.endDraw();
     for(int i = 0; i < grounds.size(); i++){
       grounds.get(i).drawShape();
       grounds.get(i).collidePlayer();
     }
     
-    player.move();
+    
     pg.mask(background);   
     image(pg,0,0);
     player.display();
