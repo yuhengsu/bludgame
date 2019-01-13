@@ -2,6 +2,7 @@ Stage1 stage1 = new Stage1();
 Stage2 stage2 = new Stage2();
 Stage3 stage3 = new Stage3();
 boolean jumping;
+PGraphics pg;
 ArrayList keys = new ArrayList();
 
 Player player;
@@ -18,6 +19,7 @@ void setup(){
   speed = new Point(0, 0);
   player = new Player(playerOrigin, playerSize, speed);
   col = new Collision();
+  pg = createGraphics(1200,500);
 }
 
 void draw(){

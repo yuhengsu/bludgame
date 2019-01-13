@@ -1,8 +1,8 @@
 
 class Stage1 {
+
   ArrayList<Ground> grounds = new ArrayList<Ground>();
   public Stage1(){
-    
     
     grounds.add(new Ground(0,255,150,85)); // 1
     grounds.add(new Ground(150,255,150,15)); // 3
@@ -14,6 +14,7 @@ class Stage1 {
     grounds.add(new Ground(850,225,100,50)); //8
     grounds.add(new Ground(1050,250,150,25)); //9
     grounds.add(new Ground(550,0,100,110)); //5
+  
   }  
   
   public void initiate(){
@@ -21,19 +22,33 @@ class Stage1 {
     background = loadImage("BACKGROUND.jpg");
     overlay = loadImage("overlay.png");
     image(background, 0, 0);
-    image(overlay,0,0);
-
     
     
-    col.resetCollision();
+    
     player.move();
+    pg.beginDraw();
+    fill(0);
+    rect(0,0,1200,500);
+    fill(255,255,255,255);
+    float angle =atan2(-(mouseY- 200),(mouseX - 200));
+    if (angle < 0) {
+      angle += PI*2;
+    }
+    pushMatrix();
+    translate(player.origin.x + 25, player.origin.y + 25);
+    rotate(-angle);
+    quad(player.origin.x + 60, player.origin.y + 35, player.origin.x + 205, player.origin.y + 75, player.origin.x + 205, player.origin.y - 20, player.origin.x + 60 , player.origin.y + 25);
+    popMatrix();
+    //quad(125,10,70,170,190,170,135,10);
+       
+    pg.endDraw();
     for(int i = 0; i < grounds.size(); i++){
       grounds.get(i).drawShape();
       grounds.get(i).collidePlayer();
     }
     
-    
-    
+    pg.mask(background);   
+    image(pg,0,0);
     player.display();
     System.out.println(player.origin.x + "|" + player.origin.y);
     //image(overlay, 0, 0);

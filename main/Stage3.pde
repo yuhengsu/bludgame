@@ -1,5 +1,6 @@
 class Stage3{
   ArrayList<Ground> grounds = new ArrayList<Ground>();
+  Enemy enemy = new Enemy(100,0,80,60,120,60);
   public Stage3(){
     grounds.add(new Ground(0,100,800,25)); //1
     grounds.add(new Ground(0,250,300,50)); //2
@@ -27,5 +28,6 @@ class Stage3{
     for(int i = 0; i <= grounds.size() - 1; i++){
       grounds.get(i).drawShape();
     }
+    enemy.drawShape();
   }
 }
