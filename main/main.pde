@@ -5,20 +5,22 @@ Stage3 stage3 = new Stage3();
 ArrayList keys = new ArrayList();
 
 Player player;
+Collision col;
 Point playerOrigin, playerSize, speed;
 
 void setup(){
   smooth(2);
   size(1200,500);
   frameRate(60);
-  playerOrigin = new Point(0, 0);
+  playerOrigin = new Point(10, 170);
   playerSize = new Point(50, 50);
   speed = new Point(0, 0);
   player = new Player(playerOrigin, playerSize, speed);
+  col = new Collision();
 }
 
 void draw(){
-  stage3.initiate();
+  stage1.initiate();
 
 }
 

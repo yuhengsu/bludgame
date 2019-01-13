@@ -18,16 +18,19 @@ class Stage1 {
   
   public void initiate(){
     PImage background, overlay;
-    background = loadImage("bg_comp.jpg");
+    background = loadImage("BACKGROUND.jpg");
     overlay = loadImage("overlay.png");
     image(background, 0, 0);
     
-    /*for(int i = 0; i <= grounds.size() - 1; i++){
-      grounds.get(i).drawShape();
-    }*/
+    
     
     player.move();
+    for(int i = 0; i < grounds.size(); i++){
+      grounds.get(i).drawShape();
+      grounds.get(i).collidePlayer();
+    }
     player.display();
+    System.out.println(player.origin.x);
     image(overlay, 0, 0);
     
 

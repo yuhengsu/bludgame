@@ -21,5 +21,25 @@ class SolidBlock {
     corners.add(new Point(tempCoordX+offset, tempCoordY-offset + tempSizeY));
     corners.add(new Point(tempCoordX-offset, tempCoordY+offset + tempSizeY));
   }
+  
+  void collidePlayer(){
+    Point arr[] = {player.origin, player.size, origin, size, player.movement.speed};
+    if (col.cIn(arr)) {
+      if (col.cTop(arr)) {
+        player.origin.y = origin.y - player.size.y - 0.01;
+        player.movement.speed.y = 0;
+        player.movement.gravity = 0;
+      } else if (col.cBot(arr)) {
+        player.origin.y = origin.y + player.size.y + 0.01;
+        player.movement.speed.y = 0;
+      } else if (col.cLe(arr)) {
+        player.origin.x = origin.x - player.size.x - 0.01;
+        player.movement.acceleration = 0;
+      } else if (col.cRi(arr)) {
+        player.origin.x = origin.x + player.size.x + 0.01;
+        player.movement.acceleration = 0;
+      } else {player.movement.gravity = 0.5;}
+    }
+  }
    
 }
