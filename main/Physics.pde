@@ -1,12 +1,11 @@
-public class Physics {
+class Physics {
   Point speed;
   float gravity, topSpeed, acceleration, drag;
   Physics(){
-    speed.x = 0;
-    speed.y = 0;
-    gravity = -9.8;
+    speed = new Point(0, 0);
+    gravity = 0.5;
     topSpeed = 30;
-    acceleration = 8;
-    drag = 6;
+    acceleration = 1;
+    drag = 0.3;
   }
 }
