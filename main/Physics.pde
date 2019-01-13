@@ -1,4 +1,3 @@
-import Point;
 public class Physics {
   Point speed;
   float gravity, topSpeed, acceleration, drag;
