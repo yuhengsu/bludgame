@@ -36,7 +36,7 @@ class StartMenu{
   }
   image(blud,20,0);
   button.draw();
-    
+  
     
   }
   

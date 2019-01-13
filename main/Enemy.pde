@@ -12,7 +12,7 @@ class Enemy {
   public void drawShape(){
     PImage enemy;
     enemy = loadImage("enemy.png");
-    image(enemy, coordX,coordY);
+    image(enemy, coordX,4*sin(frameCount/10.0)+coordY);
   }
   
 
