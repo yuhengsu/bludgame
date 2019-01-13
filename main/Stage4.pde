@@ -1,6 +1,5 @@
 class Stage4{
   ArrayList<Ground> grounds = new ArrayList<Ground>();
-  Enemy enemy = new Enemy(100,0,80,60,120,60);
   public Stage4(){
     grounds.add(new Ground(375,200,90,25)); //1
     grounds.add(new Ground(875,200,90,25)); //1
@@ -23,6 +22,5 @@ class Stage4{
     for(int i = 0; i <= grounds.size() - 1; i++){
       grounds.get(i).drawShape();
     }
-    enemy.drawShape();
   }
 }
