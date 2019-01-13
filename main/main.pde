@@ -34,7 +34,7 @@ void setup(){
   world = loadImage("world.png");
   blud = loadImage("blud.png");
   smooth();
-  frameRate(30);
+  frameRate(60);
   
   for(int i = 0; i < quantity; i++) {
     flakeSize[i] = round(random(minFlakeSize, maxFlakeSize));
